@@ -1,0 +1,25 @@
+{
+    "name": "altro_cpp",
+    "image": "blakerbuchanan/altro-image:0.0.1",
+    "runArgs": [
+      "--name", "altro_cpp_dev_container",
+      "--privileged",
+      "--net=host",
+      "-v=/tmp/.X11-unix:/tmp/.X11-unix",
+      "--env=DISPLAY",
+      "--env=QT_X11_NO_MITSHM=1",
+      "-v=${localEnv:SSH_AUTH_SOCK}:/run/ssh-agent",
+      "--env=SSH_AUTH_SOCK=/run/ssh-agent"
+    ],
+  
+    "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+    },
+  
+    "remoteUser": "guest",
+
+    "mounts": [
+        "dst=/opt/altro_ws,type=volume,consistency=cached,src=altro_cpp_dev_volume"
+    ],
+  }
+  

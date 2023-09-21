@@ -30,4 +30,11 @@ RUN apt-get update && \
     autotools-dev \
     libicu-dev \
     libbz2-dev \
-    libboost-all-dev
+    libboost-all-dev \
+    libgtest-dev \
+    cmake
+
+# Build GTest library
+RUN cd /usr/src/googletest && \
+    cmake . && \
+    cmake --build . --target install

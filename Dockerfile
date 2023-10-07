@@ -1,6 +1,6 @@
 ARG TAG=0.0.1
-FROM ubuntu:latest
-FROM gcc:latest
+FROM ubuntu:jammy
+ARG DEBIAN_FRONTEND=noninteractive
 
 ###################################################################################################
 # Set up guest user  and tools for development
@@ -32,9 +32,41 @@ RUN apt-get update && \
     libbz2-dev \
     libboost-all-dev \
     libgtest-dev \
-    cmake
+    cmake \
+    sudo \
+    ca-certificates \
+    git
+
+RUN apt-get update && \
+    apt-get install -y \
+    lsb-release && \
+    apt-get clean all
 
 # Build GTest library
 RUN cd /usr/src/googletest && \
     cmake . && \
     cmake --build . --target install
+
+# Install bazel for building drake
+RUN apt install -y \
+    apt-transport-https \
+    curl \
+    gnupg
+
+RUN curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor >bazel-archive-keyring.gpg
+RUN mv bazel-archive-keyring.gpg /usr/share/keyrings
+RUN echo "deb [arch=amd64 signed-by=/usr/share/keyrings/bazel-archive-keyring.gpg] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
+
+RUN apt update && \
+    apt install -y bazel-6.3.0
+
+# It would be nice to get Drake installed via the Dockerfile, but let's defer this until later. I ran into permissions issues that I have not yet resolved.
+# Install drake
+# WORKDIR /opt/tools/
+# RUN git clone --filter=blob:none https://github.com/RobotLocomotion/drake.git
+# RUN cd drake && \
+#     ./setup/ubuntu/install_prereqs.sh -y
+
+# RUN cd drake && \
+#     bazel-6.3.0 build //...
+

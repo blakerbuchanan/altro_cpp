@@ -8,6 +8,3 @@ cmake -DCONFIG_PACKAGE_MODE=ON -DWARNINGS_AS_ERRORS=true -DCMAKE_C_COMPILER=gcc 
 
 make --version
 make -j4 || make VERBOSE=1
-
-# # makes configuration packages due to CONFIG_PACKAGE_MODE being set on above
-# make package || make package VERBOSE=1

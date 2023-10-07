@@ -10,4 +10,10 @@ endif()
 
 project(altro_cpp)
 
+list(APPEND CMAKE_PREFIX_PATH /absolute/path/to/drakelocation/build/install)
+find_package(drake REQUIRED)
+
+add_library(my_lib ...)
+target_link_libraries(my_lib drake::drake)
+
 add_subdirectory(test)

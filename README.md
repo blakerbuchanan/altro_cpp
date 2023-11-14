@@ -55,5 +55,12 @@ bazel-6.3.0 run //examples/acrobot:run_passive
 
 Switching over to the browser window at `localhost:7000`, you should see a primitive rendering of what is basically a simulated double pendulum (an unactuated Acrobot).
 
-### Drake tutorials
-https://github.com/guzhaoyuan/drake-tutorial
+### Drake tutorials and resources
+Below are some good resources for Drake tutorials:
+* https://github.com/guzhaoyuan/drake-tutorial
+
+Drake API Docs:
+* C++ API Documentation: https://drake.mit.edu/doxygen_cxx/index.html
+* Python API Documentation: https://drake.mit.edu/pydrake/
+
+If you need to convert from a mesh format to the better-supported mesh format for Drake (.obj), use https://www.meshlab.net/ .

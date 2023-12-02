@@ -29,9 +29,14 @@ To build Drake using bazel, do
 
 ```bash
 cd /workspaces/altro_cpp/drake
+bazel-6.3.0 build --jobs 1 //...
+```
+This may take a while. Note that at the time of writing this, I am developing within a Docker container on a Macbook with Apple Silicon, which is running Docker through the Rosetta Translation Evironment. Something about the parallelization of `bazel build` jobs for `--jobs` greater than `1` causes build failures which I have yet to determine the cause of. If you are on a Linux-based system or on Windows in a container based on the Docker image resulting from building the Dockerfile in this project, you should run
+
+```bash
+cd /workspaces/altro_cpp/drake
 bazel-6.3.0 build //...
 ```
-This may take a while. These instructions were adapted from https://drake.mit.edu/bazel.html#developing-drake-using-bazel. 
 
 ### Running Drake Examples
 First follow the instructions at the following website for running the MeshCat LCM Display Server (MeLDiS): https://drake.mit.edu/pydrake/pydrake.visualization.meldis.html

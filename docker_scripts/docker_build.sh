@@ -22,6 +22,7 @@ docker_registry_image=blakerbuchanan/altro-image
 docker build \
        --no-cache \
        --build-arg TAG=${TAG} \
+       --platform linux/amd64 \
        -t ${docker_registry_image}:${TAG} -f Dockerfile .
 
 # Explicitly docker logout and docker login to make sure the correct docker repo will be pushed to if upload is needed

@@ -22,7 +22,7 @@ The password for the guest account is
 ```bash
 guest
 ```
-This will install all prerequisite dependencies for Drake.
+This will install all prerequisite dependencies for Drake.``
 
 ### Building Drake
 To build Drake using bazel, do

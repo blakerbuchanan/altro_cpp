@@ -17,5 +17,6 @@ docker run \
     $DETACHED \
     -it \
     --network host \
+    --platform linux/amd64 \
     -v "${ws_host_dir}":/workspaces:rw \
     "${IMAGE}:${TAG}" "${CONTAINER_CMD}"

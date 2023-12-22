@@ -8,8 +8,7 @@
       "-v=/tmp/.X11-unix:/tmp/.X11-unix",
       "--env=DISPLAY",
       "--env=QT_X11_NO_MITSHM=1",
-      "-v=${localEnv:SSH_AUTH_SOCK}:/run/ssh-agent",
-      "--env=SSH_AUTH_SOCK=/run/ssh-agent"
+      "--platform=linux/amd64"
     ],
   
     "settings": {

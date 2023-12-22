@@ -31,7 +31,7 @@ To build Drake using bazel, do
 cd /workspaces/altro_cpp/drake
 bazel-6.3.0 build --jobs 1 //...
 ```
-This may take a while. Note that at the time of writing this, I am developing within a Docker container on a Macbook with Apple Silicon, which is running Docker through the Rosetta Translation Evironment. Something about the parallelization of `bazel build` jobs for `--jobs` greater than `1` causes build failures which I have yet to determine the cause of. If you are on a Linux-based system or on Windows in a container based on the Docker image resulting from building the Dockerfile in this project, you should run
+This may take a while. Note that at the time of writing this, I am developing within a Docker container on a Macbook with Apple Silicon, which is running Docker through the Rosetta Translation Evironment see [here](https://developer.apple.com/documentation/apple-silicon/about-the-rosetta-translation-environment). Something about the parallelization of `bazel build` jobs for `--jobs` greater than `1` causes build failures which I have yet to determine the cause of. If you are on a Linux-based system or on Windows in a container based on the Docker image resulting from building the Dockerfile in this project, you should run
 
 ```bash
 cd /workspaces/altro_cpp/drake
